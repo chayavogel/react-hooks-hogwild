@@ -11,17 +11,31 @@ function Card( {hog} ) {
     }
 
     return (
-        <div onClick={handleClick} className="ui eight wide column">
-            <h1>{hog.name}</h1>
-            <img src={hog.image} alt={hog.name} />
+        <div className="ui card" onClick={handleClick}>
+            <div className="image">
+                <img src={hog.image} alt={hog.name} />
+            </div>
+
             { clicked ?
-            <ul>
-            <li>Weight: {hog.weight}</li>
-            <li>Specialty: {hog.specialty}</li>
-            <li>Greased: {hog.greased.toString()}</li>
-            <li>Highest Medal Achieved: {hog["highest medal achieved"]}</li>
-            </ul>
+
+            <div className="content">
+                <a className="header">Greased: {hog.greased.toString()}</a>
+                <div className="meta">
+                    <span className="date">Weight: {hog.weight}</span>
+                </div>
+                <div className="description">
+                Specialty: {hog.specialty}
+                </div>
+            </div>
+
             : null }
+
+            <div className="extra content">
+                <a>
+                    <i className="user icon"></i>
+                    {hog.name}
+                </a>
+            </div>
         </div>
     )
 }

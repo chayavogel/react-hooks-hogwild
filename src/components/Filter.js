@@ -1,17 +1,20 @@
 import React from "react"
 
-function Filter( { setInput, } ) {
+function Filter( { setFilter } ) {
 
-    function handleSelection(event) {
-        setInput(event.target.value)
+    function handleFilter(event) {
+        setFilter(event.target.value)
     }
 
     return (
-        <select onChange={handleSelection}>
+        <>
+        <label>Filter Hogs: </label>
+        <select id="greased" onChange={handleFilter}>
             <option value="All">All</option>
             <option value="Greased">Greased</option>
             <option value="Ungreased">Ungreased</option>
         </select>
+        </>
     )
 }
 
